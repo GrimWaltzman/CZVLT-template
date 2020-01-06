@@ -1,0 +1,98 @@
+header{
+    margin: auto;
+    max-width: 1600px;
+    border: 7px solid white; 
+    border-radius: 13px;
+}
+
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    transition: all 0.4s ease;
+}
+
+.navbar-item{
+    font-size: 24px;
+    font-family: "Exo 2", sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+nav a.active{
+    background-color: black;
+}
+
+
+.toggler{
+    display: none;
+    box-sizing: border-box;
+    width: 50px;
+    height: 49px;
+    margin-left: auto;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+/* Main button elements layout */
+
+.toggler>div{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.toggler>div:nth-child(1){
+    position: relative;
+    top: 6px;
+}
+
+.toggler>div:nth-child(2){
+    position: relative;
+    top: 15px;
+}
+
+.toggler>div:nth-child(3){
+    position: relative;
+    top: 24px;
+}
+
+
+/* Active layout */
+.toggler.active>div:nth-child(1){
+    z-index: 1;
+    top: 17px;
+    transform: rotate(135deg);
+}
+
+.toggler.active>div:nth-child(2){
+    z-index: 2;
+    top: 14;
+    transform: rotate(225deg);
+}
+
+.toggler.active>div:nth-child(3){
+    z-index: 3;
+    top: 12px;
+    transform: rotate(225deg);
+}   
+
+.toggler.active + nav{
+    display: flex;
+}
+
+@media (max-width: 800px){
+
+    nav{
+        flex-direction: column;
+        display: none;
+    }
+
+    .toggler{
+        display: block;;
+    }
+}

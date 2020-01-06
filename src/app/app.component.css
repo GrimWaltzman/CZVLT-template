@@ -1,0 +1,29 @@
+app-footer{
+    display: block;
+    width: 100%;
+    background-color: rgba(20, 20, 20, 1.0);
+    text-align: center;
+    align-self: flex-end;
+}
+
+app-footer{
+    display: block;
+}
+
+:host{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.viewport{
+    display: flex;
+    width: 70%;
+    border: 7px solid white;
+    border-radius: 13px;
+    margin: auto;
+    margin-top: 5px;
+    min-height: 85vh;
+    background-color: rgba(20, 20, 20, 0.8); ;
+}

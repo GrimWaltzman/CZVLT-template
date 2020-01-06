@@ -1,0 +1,14 @@
+<header>
+    <div class="toggler" [class.active]="toggleNav" (click)="toggleNav=!toggleNav">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav>
+        <a class="navbar-item" routerLink="/main" routerLinkActive='active'>Головна</a>
+        <a class="navbar-item" routerLink="/feed" routerLinkActive='active'>Статті</a>
+        <a class="navbar-item">Галерея</a>
+        <a class="navbar-item">Про нас</a>
+    </nav>
+</header>
+

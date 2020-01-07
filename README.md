@@ -1,3 +1,6 @@
+# General
+This is a template i hope to use some day for a Cozy Vault Discord server website. Exact functions and of the future website are yet to be discussed and determined, so at this point i'm just working on some basic elements and layouts. 
+
 # Main
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.

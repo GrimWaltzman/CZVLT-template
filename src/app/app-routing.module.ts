@@ -4,6 +4,8 @@ import { MainComponent } from './main/main.component';
 import { FeedComponent } from './feed/feed.component';
 import { ArticleComponent } from './feed/article/article.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 const routes: Routes = [
@@ -11,6 +13,8 @@ const routes: Routes = [
   {path: "main", component: MainComponent},
   {path: "feed", component: FeedComponent},
   {path: 'feed/:id', component: ArticleComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
@@ -20,4 +24,10 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents = [MainComponent, FeedComponent, ArticleComponent, PageNotFoundComponent]
+export const routingComponents = [
+  MainComponent,
+  FeedComponent, 
+  ArticleComponent, 
+  PageNotFoundComponent,
+  LoginComponent,
+  RegisterComponent]

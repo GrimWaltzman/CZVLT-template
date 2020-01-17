@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms'
 import { AuthRequestService } from '../auth-request.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,8 @@ import { AuthRequestService } from '../auth-request.service'
 export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
-              private ars: AuthRequestService) { }
+              private ars: AuthRequestService,
+              private router: Router) { }
  
   userData;
 
@@ -29,7 +31,11 @@ export class RegisterComponent implements OnInit {
 
     this.ars.registerUser(newUser)
     .subscribe(
-      res=>console.log(res),
+      res=>{
+        res=>console.log(res)
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['/main'])
+      },
       err=>console.log(err)
     );
   }

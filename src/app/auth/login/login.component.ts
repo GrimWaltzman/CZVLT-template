@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthRequestService } from '../auth-request.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,8 @@ export class LoginComponent implements OnInit {
 
   userData;
   constructor(private fb: FormBuilder,
-    private ars: AuthRequestService) { }
+              private ars: AuthRequestService,
+              private router: Router) { }
 
   ngOnInit() {
     this.userData = this.fb.group({
@@ -28,7 +30,11 @@ export class LoginComponent implements OnInit {
 
     this.ars.logInUser(user)
     .subscribe(
-      res=>console.log(res),
+      res=>{
+        res=>console.log(res)
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['/main'])
+      },
       err=>console.log(err)
     );
   }

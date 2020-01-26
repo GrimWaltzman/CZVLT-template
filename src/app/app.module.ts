@@ -7,8 +7,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
-import {HttpClientModule} from '@angular/common/http';
-import { AuthRequestService } from './auth/auth-request.service'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthRequestService } from './auth/auth-request.service';
+import { TokenInterceptorService } from './auth/token-interceptor.service'
+
+
 
 
 @NgModule({
@@ -25,7 +28,12 @@ import { AuthRequestService } from './auth/auth-request.service'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthRequestService],
+  providers: [AuthRequestService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

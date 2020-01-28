@@ -1,7 +1,6 @@
 <button (click)="getArticles()">Load some</button>
 
-<div *ngFor="let article of articles">
-    <h1 (click)='showArticle(article)'>Стаття {{article.id | json}}</h1>
-    <h3>{{article.title | json}}</h3>
-    <p>{{article.body | json}}</p>
+<div class="card" *ngFor="let article of articles">
+    <h1 (click)='showArticle(article)'>{{article.Titile | json}}</h1>
+    <p>{{article.Body | json}}</p>
 </div>

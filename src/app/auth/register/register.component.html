@@ -1,7 +1,7 @@
+<h1>Реєстрація</h1>
+
 <form [formGroup]='userData' (ngSubmit)='registerUser(userData)'>
-    <label for="email">Email</label>
-    <input type="email" name="email" formControlName='userEmail'>
-    <label for="password">Password</label>
-    <input type="password" name="password" formControlName='userPassword'>
+    <input type="email" name="email" formControlName='userEmail' placeholder="email">
+    <input type="password" name="password" formControlName='userPassword' placeholder="password">
     <input type="submit" value="Зареєструватися">
 </form>

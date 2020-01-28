@@ -1,7 +1,7 @@
+<h1>Авторизація</h1>
+
 <form [formGroup]='userData' (ngSubmit)='logInUser(userData)'>
-    <label for="email">Email</label>
-    <input type="email" name="email" formControlName='userEmail'>
-    <label for="password">Password</label>
-    <input type="password" name="password" formControlName='userPassword'>
+    <input type="email" name="email" formControlName='userEmail' placeholder="Email">
+    <input type="password" name="password" formControlName='userPassword' placeholder="Password">
     <input type="submit" value="Увійти">
 </form>

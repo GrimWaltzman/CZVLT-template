@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute } from '@angular/router';
+import { ArticleRequestService } from '../article-request.service';
 
 @Component({
   selector: 'app-article',
@@ -7,21 +8,24 @@ import { ActivatedRoute } from '@angular/router'
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+  
+  public id;
+  article;
+  _url;
 
-  public artID;
-  public artTitle;
-
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute,
+              private req: ArticleRequestService,
+              ) { }
 
   ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get('id'))
-    let title = this.route.snapshot.paramMap.get('title');
 
-    this.artID = id;
-    this.artTitle = title;
 
-    console.log(this.artID);
-    console.log(this.artTitle);
+    this.id = this.route.snapshot.params.id;
+    this._url = `http://localhost:3000/api/articles/${this.id}` //will make a proper url constructor as soon as i figure out how it works
+    this.req.requestGet(this._url,'').subscribe((res)=>{
+      this.article = res;
+      console.log(this.article);
+    })
  }
 
 }

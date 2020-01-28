@@ -1,13 +1,53 @@
 :host{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+h1{
+    color: white;
+}
+
 form{
     color: white;
+    width: 50%;
     display: flex;
     flex-direction: column;
     margin: auto;
+    padding: 1em;
+}
+
+input[type="submit"]{
+    width: 400px;
+    height: 50px;
+    margin: auto;
+    margin-top: 2em;
+    background-color: grey;
+    color: white;
+    border: 1px solid black;
+    border-radius: 1em;
+}
+
+input[type="email"], input[type="password"]{
+    height: 3em;
+    padding: 1em;
+    box-sizing: border-box;
+    margin-top: 2em;
+    border: none;
+}
+
+input[type="email"]:focus, input[type="password"]:focus{
+    border: 4px solid #555;
+    outline: none;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1200px){
+    input[type="submit"]{
+        margin: auto;
+        width: 100%;
+        margin-top: 2em;
+    }
 }

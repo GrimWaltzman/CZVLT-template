@@ -15,7 +15,7 @@ export class FeedComponent implements OnInit {
 
   articles: any = [];
 
-  private _url:string = 'https://jsonplaceholder.typicode.com/posts' //just a placeholder for testing, obviously, will be replaced with correct API url as soon as that API becomes available 
+  private _url:string = 'http://localhost:3000/api/articles/' 
   constructor(private request: ArticleRequestService,
               private  router: Router) { }
 
@@ -26,12 +26,11 @@ export class FeedComponent implements OnInit {
   getArticles(){
     let batch2 = this.batch.toString()
 
-    console.log(this.batch)
 
-    let params = new HttpParams().set('userId', batch2 ); 
+    // let params = new HttpParams().set('userId', batch2 ); //Will be patched when i figure out proper URL construction for requests
 
-    this.request.requestGet(this._url, params).subscribe((res)=>{
-
+    this.request.requestGet(this._url, '').subscribe((res)=>{
+      console.log(res);
 
       for(let i in res){            // i am yet to find a more effective way of doing this
         this.articles.push(res[i]); // also i will probably make it into a separate servise at some point
@@ -43,6 +42,6 @@ export class FeedComponent implements OnInit {
   }
 
   showArticle(article){
-    this.router.navigate(['/feed', article.id])
+    this.router.navigate(['/feed', article._id])
   }
 }

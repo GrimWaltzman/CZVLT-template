@@ -11,8 +11,9 @@
         <a class="navbar-item">Про нас</a>
     </nav>
     <div class="auth">
-        <a routerLink='/login'>Login</a>
-        <a routerLink='/register'>Register</a>
+        <a routerLink='/login' *ngIf='!_authService.loggedIn()'>Вхід</a>
+        <a routerLink='/register' *ngIf='!_authService.loggedIn()'>Реєстрація</a>
+        <a *ngIf='_authService.loggedIn()' (click)='_authService.logoutUser()'>Вийти</a>
     </div>
 </header>
 

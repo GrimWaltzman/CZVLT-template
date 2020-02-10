@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthRequestService } from '../auth/auth-request.service'
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ export class HeaderComponent implements OnInit {
 
   toggleNav: boolean = false;
 
-  constructor() { }
+  constructor(private _authService: AuthRequestService) { }
 
   ngOnInit() {
   }
